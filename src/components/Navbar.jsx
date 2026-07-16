@@ -10,7 +10,7 @@ function Navbar() {
         <div className="flex justify-between items-center h-14 sm:h-16 md:h-20">
           <div className="flex items-center space-x-1 group cursor-pointer">
             <div>
-              <img src="/public/Modern UX UI Logo.png" alt="CodeFlow" className="w-6 h-6 sm:w-8 sm:h-8"
+              <img src="/Modern UX UI Logo.png" alt="CodeFlow" className="w-6 h-6 sm:w-8 sm:h-8"
               />
             </div>
             <span className="text-lg sm:text-xl md:text-2xl font-medium">
