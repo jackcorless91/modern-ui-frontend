@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Menu, X} from "lucide-react";
 
 function Navbar() {
+  const [MobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-950/20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +20,9 @@ function Navbar() {
           </div>
 
         {/*  nav links */}
-          <div className="flex items-center space-x-6 lg:space-x-8">
+          <div className=" hidden md:flex items-center space-x-6 lg:space-x-8">
+            {/* can't have display flex and hidden, use this to hide bamhurger on future projects i always forget lol */}
+
             <a href="#features" className="text-gray-300 hover:text-white text-sm lg:text-base"
             >
               Features
@@ -32,8 +37,34 @@ function Navbar() {
             </a>
           </div>
 
+          <button className="md:hidden items-center p-2 text-gray-300 hover:text-white" onClick={() => setMobileMenuIsOpen((prev) => !prev)}>
+            {MobileMenuIsOpen ? (
+              <X className="w-5 h-5 sm:w-6 sm:h-6"/>
+            ) : (
+            <Menu className="w-5 h-5 sm:w-6 sm:h-6"/>
+            )}
+          </button>
         </div>
+
       </div>
+      {MobileMenuIsOpen && (
+        <div>
+          <div>
+            <a href="#features" className="text-gray-300 hover:text-white text-sm lg:text-base"
+            >
+              Features
+            </a>
+            <a href="#pricing" className="text-gray-300 hover:text-white text-sm lg:text-base"
+            >
+              Pricing
+            </a>
+            <a href="#testimonials" className="text-gray-300 hover:text-white text-sm lg:text-base"
+            >
+              Testimonials
+            </a>
+          </div>
+      </div>
+      )}
     </nav>
   );
 }
